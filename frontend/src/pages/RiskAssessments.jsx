@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getRiskAssessments, createRiskAssessment, updateRiskAssessment, deleteRiskAssessment, getJobs } from '../api';
+import { exportRiskAssessmentsToCSV } from '../utils/exportUtils';
 
 function RiskAssessmentModal({ assessment, jobs, onClose, onSave }) {
   const [formData, setFormData] = useState(assessment || {
@@ -164,9 +165,14 @@ function RiskAssessments() {
       <div className="card">
         <div className="card-header">
           <h3 className="card-title">Risk Assessments</h3>
-          <button className="btn btn-primary" onClick={handleCreateAssessment}>
-            + New Risk Assessment
-          </button>
+          <div className="flex items-center gap-2">
+            <button className="btn btn-secondary" onClick={() => exportRiskAssessmentsToCSV(assessments)}>
+              📥 Export CSV
+            </button>
+            <button className="btn btn-primary" onClick={handleCreateAssessment}>
+              + New Risk Assessment
+            </button>
+          </div>
         </div>
         <div className="table-container">
           {assessments.length > 0 ? (

@@ -12,6 +12,7 @@ A web-based admin dashboard for managing project jobs, operatives, and monitorin
 - **Method Statements**: Document work procedures and safety requirements
 - **User Management**: Multi-user support with authentication
 - **Progress Monitoring**: Track job updates and progress in real-time
+- **Data Export**: Export jobs, operatives, risk assessments, and method statements to CSV format for Microsoft SharePoint or Excel
 
 ## Tech Stack
 
@@ -92,6 +93,48 @@ http://localhost:5173
 Username: admin
 Password: admin123
 ```
+
+## Exporting Data
+
+The application includes CSV export functionality for all major data types:
+
+### How to Export
+
+1. Navigate to any of the following pages:
+   - Jobs
+   - Operatives
+   - Risk Assessments
+   - Method Statements
+
+2. Click the **"📥 Export CSV"** button in the top right corner
+
+3. A CSV file will automatically download to your computer
+
+4. The filename includes the data type and current date (e.g., `jobs_export_2024-02-10.csv`)
+
+### Using Exports with Microsoft SharePoint
+
+The exported CSV files can be easily imported into Microsoft SharePoint:
+
+1. Export the data from the dashboard
+2. Open your SharePoint site
+3. Go to the list where you want to import the data
+4. Select **"Import from CSV"** or open the file in Excel
+5. Use Excel to upload to SharePoint Lists
+
+### Filtered Exports
+
+- **Jobs**: Exports respect the status filter (All, Pending, In Progress, Completed)
+- Other pages export all current data
+
+### CSV Contents
+
+Each export includes all relevant fields:
+
+- **Jobs**: ID, Title, Description, Client, Location, Status, Priority, Skills, Assigned To, Dates
+- **Operatives**: ID, Name, Email, Phone, Skills, Location, Availability
+- **Risk Assessments**: ID, Title, Job ID, Hazards, Risks, Control Measures
+- **Method Statements**: ID, Title, Job ID, Description, Steps, Equipment, Safety Requirements
 
 ## Project Structure
 

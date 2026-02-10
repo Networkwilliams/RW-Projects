@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getJobs, createJob, updateJob, deleteJob, getOperatives } from '../api';
 import { Link } from 'react-router-dom';
+import { exportJobsToCSV } from '../utils/exportUtils';
 
 function JobModal({ job, operatives, onClose, onSave }) {
   const [formData, setFormData] = useState(job || {
@@ -232,6 +233,9 @@ function Jobs() {
               <option value="in_progress">In Progress</option>
               <option value="completed">Completed</option>
             </select>
+            <button className="btn btn-secondary" onClick={() => exportJobsToCSV(filteredJobs)}>
+              📥 Export CSV
+            </button>
             <button className="btn btn-primary" onClick={handleCreateJob}>
               + New Job
             </button>

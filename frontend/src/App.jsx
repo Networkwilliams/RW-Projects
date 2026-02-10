@@ -24,7 +24,7 @@ function Layout({ children, user, onLogout }) {
     <div className="app-container">
       <aside className="sidebar">
         <div className="sidebar-header">
-          <img src="/logo.png" alt="RW Projects Logo" style={{ width: '100px', marginBottom: '12px' }} />
+          <img src="/logo.jpg" alt="RW Projects Logo" style={{ width: '100px', marginBottom: '12px' }} />
           <h1 style={{ fontSize: '20px' }}>RW Projects<br/>Job Dashboard</h1>
         </div>
         <nav className="sidebar-nav">

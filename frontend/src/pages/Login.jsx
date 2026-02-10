@@ -30,8 +30,8 @@ function Login({ onLogin }) {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <img src="/logo.png" alt="RW Projects Logo" style={{ width: '120px', marginBottom: '16px' }} />
-          <h1>RW Projects Job Dashboard</h1>
+          <img src="/logo.jpg" alt="RW Projects Logo" style={{ width: '120px', marginBottom: '16px' }} />
+          <h1>RW Projects<br/>Job Dashboard</h1>
           <p>Sign in to your account</p>
         </div>
         <form onSubmit={handleSubmit}>

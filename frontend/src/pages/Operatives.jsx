@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getOperatives, createOperative, updateOperative, deleteOperative } from '../api';
+import { exportOperativesToCSV } from '../utils/exportUtils';
 
 function OperativeModal({ operative, onClose, onSave }) {
   const [formData, setFormData] = useState(operative || {
@@ -164,9 +165,14 @@ function Operatives() {
       <div className="card">
         <div className="card-header">
           <h3 className="card-title">Operatives Management</h3>
-          <button className="btn btn-primary" onClick={handleCreateOperative}>
-            + New Operative
-          </button>
+          <div className="flex items-center gap-2">
+            <button className="btn btn-secondary" onClick={() => exportOperativesToCSV(operatives)}>
+              📥 Export CSV
+            </button>
+            <button className="btn btn-primary" onClick={handleCreateOperative}>
+              + New Operative
+            </button>
+          </div>
         </div>
         <div className="table-container">
           {operatives.length > 0 ? (

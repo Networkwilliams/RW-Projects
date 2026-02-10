@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getMethodStatements, createMethodStatement, updateMethodStatement, deleteMethodStatement, getJobs } from '../api';
+import { exportMethodStatementsToCSV } from '../utils/exportUtils';
 
 function MethodStatementModal({ statement, jobs, onClose, onSave }) {
   const [formData, setFormData] = useState(statement || {
@@ -174,9 +175,14 @@ function MethodStatements() {
       <div className="card">
         <div className="card-header">
           <h3 className="card-title">Method Statements</h3>
-          <button className="btn btn-primary" onClick={handleCreateStatement}>
-            + New Method Statement
-          </button>
+          <div className="flex items-center gap-2">
+            <button className="btn btn-secondary" onClick={() => exportMethodStatementsToCSV(statements)}>
+              📥 Export CSV
+            </button>
+            <button className="btn btn-primary" onClick={handleCreateStatement}>
+              + New Method Statement
+            </button>
+          </div>
         </div>
         <div className="table-container">
           {statements.length > 0 ? (
